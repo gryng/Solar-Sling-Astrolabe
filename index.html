@@ -733,7 +733,12 @@
           const img = new Image();
           img.onload = () => {
             if (key === 'bg') this.bgTexture = img;
-            else this.sprites[key] = img;
+            else {
+              this.sprites[key] = img;
+              if (key === 'striker') this.sprites.strikerOverdrive = img;
+              if (key === 'armor') this.sprites.armorCracked = img;
+              if (key === 'mine') this.sprites.mineVuln = img;
+            }
           };
           img.src = src;
         });
